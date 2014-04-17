@@ -1,1 +1,3 @@
-The easiest way to use GitHub on Windows.
+SELECT TOP 10
+*
+FROM SYS.TABLES (WITH NOLOCK)
