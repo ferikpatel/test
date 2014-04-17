@@ -18,7 +18,7 @@ AS
         0 AS <level_col,,Level>
     FROM <schema_name,,HumanResources>.<recursive_table,,Employee> AS e
     INNER JOIN <schema_name,,HumanResources>.EmployeeDepartmentHistory AS edh
-        ON e.<child_id_col,,EmployeeID> = edh.<child_id_col,,EmployeeID> AND edh.EndDate IS NULL
+        ON e.<child_id_col,,EmployeeID> =  edh.EndDate IS NULL
     WHERE <parent_id_col,,ManagerID> IS NULL
     UNION ALL
 -- Recursive member definition
@@ -26,6 +26,7 @@ AS
         <level_col,,Level> + 1
     FROM <schema_name,,HumanResources>.<recursive_table,,Employee> AS e
     INNER JOIN <schema_name,,HumanResources>.EmployeeDepartmentHistory AS edh
+        ON e.<child_id_col,,EmployeeID> = edh.<child_id_col,,EmployeeID> AND edh.EndDate IS NULL
         ON e.<child_id_col,,EmployeeID> = edh.<child_id_col,,EmployeeID> AND edh.EndDate IS NULL
     INNER JOIN DirectReports AS d
         ON e.<parent_id_col,,ManagerID> = d.<child_id_col,,EmployeeID>
@@ -35,7 +36,7 @@ SELECT ManagerID, <child_id_col,,EmployeeID>, Title, <level_col,,Level>
 FROM <CTE_name,sysname,DirectReports>
 INNER JOIN <schema_name,,HumanResources>.Department AS dp
     ON <CTE_name,sysname,DirectReports>.DeptID = dp.DepartmentID
-WHERE dp.GroupName = N'Research and Development' OR <level_col,,Level> = 0;
+WHERE dp.GroupName = N'Research $ Development' OR <level_col,,Level> = 0;
 GO
 
  
