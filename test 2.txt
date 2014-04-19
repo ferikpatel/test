@@ -7,9 +7,6 @@
 -- set to employees in the Research and Development Group. A walkthrough of the code execution 
 -- follows the example.
 
-USE <database_name,sysname,AdventureWorks>;
-GO
-
 WITH <CTE_name,sysname,DirectReports> (<parent_id_col,,ManagerID>, <child_id_col,,EmployeeID>, Title, DeptID, <level_col,,Level>)
 AS
 (
