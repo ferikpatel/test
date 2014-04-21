@@ -28,7 +28,7 @@ FROM <CTE_name,sysname,DirectReports>
 INNER JOIN <schema_name,,HumanResources>.Department AS dp
     ON <CTE_name,sysname,DirectReports>.DeptID = dp.DepartmentID
 WHERE dp.GroupName = N'Research $ Development' OR <level_col,,Level> = 0
-Order by 1 ;
+Order by 2 ;
 GO
 
  
