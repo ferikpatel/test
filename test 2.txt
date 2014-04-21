@@ -27,7 +27,8 @@ SELECT ManagerID, <child_id_col,,EmployeeID>, Title, <level_col,,Level>
 FROM <CTE_name,sysname,DirectReports>
 INNER JOIN <schema_name,,HumanResources>.Department AS dp
     ON <CTE_name,sysname,DirectReports>.DeptID = dp.DepartmentID
-WHERE dp.GroupName = N'Research $ Development' OR <level_col,,Level> = 0;
+WHERE dp.GroupName = N'Research $ Development' OR <level_col,,Level> = 0
+Order by 1 ;
 GO
 
  
