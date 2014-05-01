@@ -16,4 +16,4 @@ SELECT DB_NAME(DT.database_id) As DBName,
 	*
 FROM sys.dm_tran_database_transactions DT
 Left Join sys.dm_tran_session_transactions ST ON ST.transaction_id = DT.transaction_id
-Left Join sys.dm_exec_sessions S On S.session_id = ST.session_id
+Left Join sys.dm_exec_sessions S On S.session_id = ST.session_ID
